@@ -34,7 +34,7 @@ export default {
 		file: 'dist/leaflet.markercluster-src.js',
 		format: 'umd',
 		legacy: true, // Needed to create files loadable by IE8
-		name: 'leaflet.markercluster',
+		name: 'Leaflet.markercluster',
 		sourcemap: true,
 		globals:{
 			"leaflet": "L"
