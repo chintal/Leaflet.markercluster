@@ -3,7 +3,7 @@
 
 import rollupGitVersion from 'rollup-plugin-git-version'
 import json from 'rollup-plugin-json'
-
+import inject from '@rollup/plugin-inject';
 import gitRev from 'git-rev-sync'
 
 
@@ -36,8 +36,17 @@ export default {
 		legacy: true, // Needed to create files loadable by IE8
 		name: 'Leaflet.markercluster',
 		sourcemap: true,
+		globals:{
+			"leaflet": "L"
+		}
 	},
+	external: [
+		"leaflet"
+	],
 	plugins: [
 		release ? json() : rollupGitVersion(),
+		inject({
+			L: "leaflet"
+		})
 	],
 };
